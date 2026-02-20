@@ -1,20 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using StudentApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
-namespace StudentApp.Controllers
+namespace Routing.Controllers
 {
     public class StudentController : Controller
     {
-        public IActionResult Index()
+        [Route("Details/{id}")]
+        public IActionResult Details(int id)
         {
-            // Creating a student object
-            Student student = new Student
-            {
-                Name = "shanell",
-                USN = "NU24UCA066"
-            };
+            return Content("Student ID is: " + id);
+        }
 
-            return View(student);
+        [Route("Marks/{id}/{subject}")]
+            
+        public IActionResult Marks(int id, string subject)
+        {
+             return Content($"Student Id :{id}.Subject : {subject}.");
+        }
+
+        [Route("Input/{id}")]
+        public IActionResult Input(int id, string name)
+        {
+            string message = $"Student ID :{id}, Student Name: {name}";
+            return Content(message);
         }
     }
 }
+
+
