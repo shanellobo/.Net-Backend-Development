@@ -1,8 +1,13 @@
-﻿namespace StudentApp.Models
+namespace Routing.Models
 {
     public class Student
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
-        public string USN { get; set; }
+
+        public string Subject { get; set; }
+
+        public int Marks { get; set; }
     }
 }
