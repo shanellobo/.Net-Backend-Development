@@ -1,4 +1,4 @@
-﻿@model StudentApp.Models.Student
+@model StudentApp.Models.Student
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,13 @@
 <body>
     <h1>Student Information</h1>
     <hr />
+
+    <p><strong>ID:</strong> @Model.Id</p>
     <p><strong>Name:</strong> @Model.Name</p>
-    <p><strong>USN:</strong> @Model.USN</p>
+    <p><strong>Subject:</strong> @Model.Subject</p>
+    <p><strong>Marks:</strong> @Model.Marks</p>
+
 </body>
 </html>
+
+
