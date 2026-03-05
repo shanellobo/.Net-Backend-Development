@@ -1,0 +1,21 @@
+﻿@page
+@model DataBinding.Pages.Shared.DataBindingModel
+<h2>Data Binding</h2>
+<form method="post">
+    Name:
+    <input asp-for="Person.Name" />
+    Age:
+    <input asp-for="Person.Age" />
+    Address:
+    <input asp-for="Person.Address" />
+    <button type="submit">Submit</button>
+</form>
+@if (Model.Person != null)
+{
+    <h3>Submitted Data:</h3>
+    <ul>
+        <li><b>Name:</b> @Model.Person.Name</li>
+        <li><b>Age:</b> @Model.Person.Age</li>
+        <li><b>Address:</b> @Model.Person.Address</li>
+    </ul>
+}
