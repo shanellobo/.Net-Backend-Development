@@ -7,7 +7,7 @@ namespace DataBinding.Pages.Shared
     {
         [BindProperty]
         public Person Person { get; set; }
-
+        public static List<Person> People { get; set; } = new List<Person>();
         public string Result { get; set; }
 
         public void OnGet()
@@ -16,7 +16,11 @@ namespace DataBinding.Pages.Shared
 
         public void OnPost()
         {
-            Result = $"Name: {Person.Name}, Age: {Person.Age}, Address: {Person.Address}";
+            if(Person != null)
+            {
+                People.Add(Person);
+                Result = $"Added {Person.Name}, Age: {Person.Age}, Address: {Person.Address}";
+            }
         }
     }
 }
