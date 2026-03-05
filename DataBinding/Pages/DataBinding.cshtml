@@ -1,5 +1,19 @@
-﻿@page
+@page
+@using DataBinding.Pages.Shared
 @model DataBinding.Pages.Shared.DataBindingModel
+
+<style>
+    table {
+        border-collapse: collapse;
+        margin-top: 8px;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 3px 8px;
+    }
+</style>
+
 <h2>Data Binding</h2>
 <form method="post">
     Name:
@@ -10,12 +24,23 @@
     <input asp-for="Person.Address" />
     <button type="submit">Submit</button>
 </form>
-@if (Model.Person != null)
+
+@if (DataBindingModel.People.Count > 0)
 {
     <h3>Submitted Data:</h3>
-    <ul>
-        <li><b>Name:</b> @Model.Person.Name</li>
-        <li><b>Age:</b> @Model.Person.Age</li>
-        <li><b>Address:</b> @Model.Person.Address</li>
-    </ul>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+        @foreach (var person in DataBindingModel.People)
+        {
+            <tr>
+                <td>@person.Name</td>
+                <td>@person.Age</td>
+                <td>@person.Address</td>
+            </tr>
+        }
+    </table>
 }
